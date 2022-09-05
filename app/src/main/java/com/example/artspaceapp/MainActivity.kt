@@ -158,7 +158,8 @@ fun ArtSpaceImageAndText(
                 fontWeight = FontWeight.Bold
             )
             Row(
-                horizontalArrangement = Arrangement.Center
+                horizontalArrangement = Arrangement.Center,
+                modifier = Modifier.fillMaxWidth()
             ) {
                 Text(text = stringResource(artistResourceId, ")"), fontSize = 18.sp)
                 Text(
