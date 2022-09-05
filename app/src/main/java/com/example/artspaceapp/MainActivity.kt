@@ -5,16 +5,19 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color.Companion.Black
-import androidx.compose.ui.graphics.Color.Companion.LightGray
+import androidx.compose.ui.graphics.Color.Companion.DarkGray
+import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -33,7 +36,7 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = LightGray
+                    color = DarkGray
                 ) {
                     ArtSpaceApp()
                 }
@@ -47,9 +50,10 @@ fun ArtSpaceApp() {
     var currentImageAndText by remember { mutableStateOf(1) }
 
     Column(
-        modifier = Modifier.padding(
-            32.dp
-        ),
+        modifier = Modifier
+            .padding(
+                32.dp
+            ),
         verticalArrangement = Arrangement.spacedBy(20.dp)
     ) {
         when (currentImageAndText) {
@@ -124,19 +128,22 @@ fun ArtSpaceImageAndText(
             painter = painterResource(imageResourceId),
             contentDescription = stringResource(titleResourceId),
             modifier = Modifier
-                .border(border = BorderStroke(width = 3.dp, color = Black))
+                .border(border = BorderStroke(width = 3.dp, color = White))
                 .padding(
                     16.dp
                 )
+                .heightIn(500.dp, 530.dp)
+                .fillMaxWidth()
         )
     }
 
     Surface(
         modifier = Modifier
             .heightIn(80.dp, 300.dp)
-            .widthIn(300.dp, 380.dp),
+            .widthIn(300.dp, 380.dp)
+            .background(DarkGray),
         shape = RectangleShape,
-        elevation = 12.dp,
+        elevation = 12.dp
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -178,11 +185,37 @@ fun ButtonsPreviousAndNext(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            Button(onClick = onClickPrev, modifier = modifierButton) {
-                Text(text = "Previous")
+            Button(
+                onClick = onClickPrev,
+                elevation = ButtonDefaults.elevation(
+                    defaultElevation = 10.dp,
+                    pressedElevation = 15.dp,
+                    disabledElevation = 0.dp
+                ),
+                shape = RoundedCornerShape(20.dp),
+                modifier = Modifier
+                    .size(100.dp),
+                contentPadding = PaddingValues(0.dp)
+            ) {
+                Text(
+                    text = "Previous"
+                )
             }
-            Button(onClick = onClickNext, modifier = modifierButton) {
-                Text(text = "Next")
+            Button(
+                onClick = onClickNext,
+                elevation = ButtonDefaults.elevation(
+                    defaultElevation = 10.dp,
+                    pressedElevation = 15.dp,
+                    disabledElevation = 0.dp
+                ),
+                shape = RoundedCornerShape(20.dp),
+                modifier = Modifier
+                    .size(100.dp),
+                contentPadding = PaddingValues(0.dp)
+            ) {
+                Text(
+                    text = "Next"
+                )
             }
         }
     }
