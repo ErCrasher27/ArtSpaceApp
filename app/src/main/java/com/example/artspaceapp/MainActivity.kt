@@ -53,7 +53,10 @@ fun ArtSpaceApp() {
         modifier = Modifier
             .padding(
                 32.dp
-            ),
+            )
+            .heightIn(500.dp, 530.dp)
+            .widthIn(500.dp, 530.dp)
+            .fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(20.dp)
     ) {
         when (currentImageAndText) {
@@ -132,8 +135,6 @@ fun ArtSpaceImageAndText(
                 .padding(
                     16.dp
                 )
-                .heightIn(500.dp, 530.dp)
-                .fillMaxWidth()
         )
     }
 
