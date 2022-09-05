@@ -13,11 +13,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color.Companion.Black
-import androidx.compose.ui.graphics.Color.Companion.Gray
 import androidx.compose.ui.graphics.Color.Companion.LightGray
-import androidx.compose.ui.graphics.Color.Companion.White
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
@@ -121,40 +119,48 @@ fun ArtSpaceImageAndText(
     artistResourceId: Int,
     yearResourceId: Int,
 ) {
-    Column(
-        modifier = Modifier
-            .padding(
-                10.dp
-            )
-            .border(border = BorderStroke(width = 2.dp, color = Black))
-    ) {
+    Column {
         Image(
             painter = painterResource(imageResourceId),
             contentDescription = stringResource(titleResourceId),
             modifier = Modifier
-                .size(500.dp)
-                .fillMaxSize()
+                .border(border = BorderStroke(width = 3.dp, color = Black))
+                .padding(
+                    16.dp
+                )
         )
     }
 
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
+    Surface(
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(10.dp)
-            .shadow(1.dp)
+            .heightIn(80.dp, 300.dp)
+            .widthIn(300.dp, 380.dp),
+        shape = RectangleShape,
+        elevation = 12.dp,
     ) {
-        Text(text = stringResource(titleResourceId), fontSize = 32.sp, fontWeight = FontWeight.Bold)
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(5.dp),
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp)
         ) {
-            Text(text = stringResource(artistResourceId, ")"), fontSize = 18.sp)
             Text(
-                text = stringResource(yearResourceId),
-                fontSize = 18.sp,
-                fontStyle = FontStyle.Italic
+                text = stringResource(titleResourceId),
+                fontSize = 32.sp,
+                fontWeight = FontWeight.Bold
             )
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(5.dp),
+            ) {
+                Text(text = stringResource(artistResourceId, ")"), fontSize = 18.sp)
+                Text(
+                    text = stringResource(yearResourceId),
+                    fontSize = 18.sp,
+                    fontStyle = FontStyle.Italic
+                )
+
+            }
         }
     }
 }
