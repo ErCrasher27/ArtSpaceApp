@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Art Space app</string>
+
+    <string name="title_image1">Fabrizia</string>
+    <string name="artist_image1">Roberta</string>
+    <string name="year_image1">(2005)</string>
+
+    <string name="title_image2">Kimi</string>
+    <string name="artist_image2">1</string>
+    <string name="year_image2">(2007)</string>
+
+    <string name="title_image3">Ariana e Mac</string>
+    <string name="artist_image3">fotografo</string>
+    <string name="year_image3">(2017)</string>
+
+    <string name="title_image4">V(i)etri Sul Mare</string>
+    <string name="artist_image4">our self</string>
+    <string name="year_image4">(2022)</string>
+
+    <string name="title_image5">the look</string>
+    <string name="artist_image5">it is god i think</string>
+    <string name="year_image5">(2022)</string>
+
+    <string name="title_image6">Posto sperduto</string>
+    <string name="artist_image6">oppo</string>
+    <string name="year_image6">(2022)</string>
+
+
+</resources>
