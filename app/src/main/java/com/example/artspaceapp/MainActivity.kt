@@ -135,6 +135,9 @@ fun ArtSpaceImageAndText(
                 .padding(
                     16.dp
                 )
+                .heightIn(500.dp, 530.dp)
+                .widthIn(500.dp, 530.dp)
+                .fillMaxWidth(),
         )
     }
 
